@@ -5,15 +5,15 @@
         <p>西山龙胤管理系统</p>
       </div>
       <div class="loginForm">
-        <el-form ref="form" :model="form">
-          <el-form-item prop="username">
+        <el-form ref="form" class="form" :model="form" :rules="rules" @submit.native.prevent>
+          <el-form-item prop="account">
             <el-input v-model="form.account" placeholder="用户名" style="width: 250px;"></el-input>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input type="password" placeholder="密码"  v-model="form.password" autocomplete="off" style="width: 250px;"></el-input>
+            <el-input type="password" placeholder="密码" v-model="form.password" autocomplete="off" style="width: 250px;" ></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="submitForm" class="submit_btn">登录</el-button>
+            <el-button type="primary" native-type="submit" @click="submitForm('form')" class="submit_btn" style="width: 250px;">登录</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -31,22 +31,36 @@ export default {
       form: {
         account: '',
         password: ''
+      },
+      rules: {
+        account: [
+          { required: true, message: '请输入账号', trigger: 'blur' },
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' },
+        ]
       }
     }
   },
   methods: {
-    submitForm() {
-      post("/api/common/login",{account: this.form.account, password: this.form.password}).then(res => {
-        if (res.status == 'success') {
-          this.$message.success('登录成功！');
-          this.$router.replace('/index');
+    submitForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          post("/api/common/login",{account: this.form.account, password: this.form.password}).then(res => {
+            if (res.status == 'success') {
+              this.$message.success('登录成功！');
+              this.$router.replace('/index');
+            } else {
+              this.$message.error(res.data.errMsg);
+            }
+          }).catch(err => {
+            this.$message.error('网络错误！');
+          });
         } else {
-          this.$message.error(res.data.errMsg);
+          return false;
         }
-      }).catch(err => {
-        this.$message.error('网络错误！');
       });
-    }
+    },
   }
 }
 </script>
@@ -55,11 +69,12 @@ export default {
 .loginPage {
   height: 100vh;
   width: 100%;
-  background: black;
+  background: #324057;
 }
 .loginDiv {
   position: absolute;
-  width: 400px;
+  align-items: center;
+  width: 350px;
   height: 400px;
   left: 0;
   right: 0;
@@ -75,8 +90,16 @@ export default {
   width: 100%;
 }
 .loginForm {
+  position: absolute;
   background: aliceblue;
-  height: 300px;
+  margin-top: 20px;
+  height: 240px;
   width: 100%;
+
+}
+.form {
+  padding: 38px 0 0 50px;
+  /*margin-top: 20%;*/
+  /*transform: translateY(-25%);*/
 }
 </style>

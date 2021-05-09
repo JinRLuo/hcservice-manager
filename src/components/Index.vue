@@ -20,18 +20,18 @@
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
-            background-color="#545c64"
+            background-color="#324057"
             text-color="#fff"
             active-text-color="#ffd04b" style="height: 100%" router>
 
             <el-menu-item index="index">
-              <i class="el-icon-menu"></i>
+              <i class="el-icon-s-data"></i>
               <span slot="title">首页</span>
             </el-menu-item>
 
             <el-submenu index="2">
               <template slot="title">
-                <i class="el-icon-location"></i>
+                <i class="el-icon-s-custom"></i>
                 <span>账号管理</span>
               </template>
               <el-menu-item index="managerAccount">管理员</el-menu-item>
@@ -40,7 +40,7 @@
 
             <el-submenu index="3">
               <template slot="title">
-                <i class="el-icon-location"></i>
+                <i class="el-icon-s-home"></i>
                 <span>房产管理</span>
               </template>
               <el-menu-item index="3-1">审核房产</el-menu-item>
@@ -49,7 +49,7 @@
 
             <el-submenu index="4">
               <template slot="title">
-                <i class="el-icon-location"></i>
+                <i class="el-icon-s-comment"></i>
                 <span>信息发布</span>
               </template>
               <el-menu-item index="4-1">公告管理</el-menu-item>
@@ -57,27 +57,27 @@
             </el-submenu>
 
             <el-menu-item index="5">
-              <i class="el-icon-setting"></i>
+              <i class="el-icon-s-open"></i>
               <span slot="title">维修管理</span>
             </el-menu-item>
 
             <el-menu-item index="6">
-              <i class="el-icon-setting"></i>
+              <i class="el-icon-s-check"></i>
               <span slot="title">访客管理</span>
             </el-menu-item>
 
             <el-menu-item index="7">
-              <i class="el-icon-setting"></i>
+              <i class="el-icon-s-finance"></i>
               <span slot="title">停车管理</span>
             </el-menu-item>
 
             <el-menu-item index="8">
-              <i class="el-icon-setting"></i>
+              <i class="el-icon-s-management"></i>
               <span slot="title">物业管理</span>
             </el-menu-item>
 
             <el-menu-item index="9">
-              <i class="el-icon-setting"></i>
+              <i class="el-icon-s-order"></i>
               <span slot="title">订单管理</span>
             </el-menu-item>
 
@@ -121,7 +121,7 @@ export default {
   background: #23262E;
 }
 .leftAside {
-  background: #545C64;
+
 }
 el-menu-item {
   background: #1F2D3D;
