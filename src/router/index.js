@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '../components/Index'
 import Login from "../components/Login";
+import ManagerAccount from "../components/ManagerAccount";
+import UserAccount from "../components/UserAccount";
 
 Vue.use(Router)
 
@@ -14,7 +16,19 @@ const routes = [
   {
     path: '/index',
     name: 'Index',
-    component: Index
+    component: Index,
+    children: [
+      {
+        path: '/managerAccount',
+        name: 'ManagerAccount',
+        component: ManagerAccount
+      },
+      {
+        path: '/userAccount',
+        name: 'UserAccount',
+        component: UserAccount
+      },
+    ]
   }
 ]
 

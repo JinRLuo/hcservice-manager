@@ -3,13 +3,10 @@
     <el-container style="height: 100%">
       <el-header class="top" height="60px">
         <el-row class="demo-avatar demo-basic">
-          <el-col :span="6">
-            <div>西山龙胤</div>
+          <el-col :span="3">
+            <div class="topTitle">西山龙胤</div>
           </el-col>
-          <el-col :span="16">
-            <div>1</div>
-          </el-col>
-          <el-col :span="2">
+          <el-col :span="2" :offset="19">
             <div class="headImage">
               <el-avatar size="medium" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"></el-avatar>
             </div>
@@ -19,15 +16,15 @@
       <el-container>
         <el-aside class="leftAside" width="300px">
           <el-menu
-            default-active="1"
+            default-active="index"
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
             background-color="#545c64"
             text-color="#fff"
-            active-text-color="#ffd04b" style="height: 100%">
+            active-text-color="#ffd04b" style="height: 100%" router>
 
-            <el-menu-item index="1">
+            <el-menu-item index="index">
               <i class="el-icon-menu"></i>
               <span slot="title">首页</span>
             </el-menu-item>
@@ -37,8 +34,8 @@
                 <i class="el-icon-location"></i>
                 <span>账号管理</span>
               </template>
-              <el-menu-item index="1-1">管理员</el-menu-item>
-              <el-menu-item index="1-2">业主</el-menu-item>
+              <el-menu-item index="managerAccount">管理员</el-menu-item>
+              <el-menu-item index="userAccount">业主</el-menu-item>
             </el-submenu>
 
             <el-submenu index="3">
@@ -46,8 +43,8 @@
                 <i class="el-icon-location"></i>
                 <span>房产管理</span>
               </template>
-              <el-menu-item index="1-1">审核房产</el-menu-item>
-              <el-menu-item index="1-2">管理房产</el-menu-item>
+              <el-menu-item index="3-1">审核房产</el-menu-item>
+              <el-menu-item index="3-2">管理房产</el-menu-item>
             </el-submenu>
 
             <el-submenu index="4">
@@ -55,8 +52,8 @@
                 <i class="el-icon-location"></i>
                 <span>信息发布</span>
               </template>
-              <el-menu-item index="1-1">公告管理</el-menu-item>
-              <el-menu-item index="1-2">投诉信息</el-menu-item>
+              <el-menu-item index="4-1">公告管理</el-menu-item>
+              <el-menu-item index="4-2">投诉信息</el-menu-item>
             </el-submenu>
 
             <el-menu-item index="5">
@@ -116,7 +113,9 @@ export default {
 <style scoped>
 .indexPage {
   height: 100vh;
-
+  margin: 0;
+  padding: 0;
+  border-width: 0;
 }
 .top {
   background: #23262E;
@@ -128,6 +127,12 @@ el-menu-item {
   background: #1F2D3D;
 }
 .headImage {
-  padding: 10px 90px 10px 90px;
+  padding: 11px 0px 0px 85px;
+}
+.topTitle {
+  line-height: 55px;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
 }
 </style>
