@@ -46,7 +46,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          post("/api/common/login",{account: this.form.account, password: this.form.password}).then(res => {
+          post("/api/admin/login",{account: this.form.account, password: this.form.password}).then(res => {
             if (res.status == 'success') {
               this.$message.success('登录成功！');
               this.$router.replace('/index');
