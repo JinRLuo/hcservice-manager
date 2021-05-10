@@ -4,7 +4,7 @@
       <div class="loginTitle">
         <p>西山龙胤管理系统</p>
       </div>
-      <div class="loginForm">
+      <el-card class="loginForm" >
         <el-form ref="form" class="form" :model="form" :rules="rules" @submit.native.prevent>
           <el-form-item prop="account">
             <el-input v-model="form.account" placeholder="用户名" style="width: 250px;"></el-input>
@@ -16,7 +16,7 @@
             <el-button type="primary" native-type="submit" @click="submitForm('form')" class="submit_btn" style="width: 250px;">登录</el-button>
           </el-form-item>
         </el-form>
-      </div>
+      </el-card>
     </div>
   </div>
 </template>
@@ -98,7 +98,7 @@ export default {
 
 }
 .form {
-  padding: 38px 0 0 50px;
+  padding: 18px 0 0 27px;
   /*margin-top: 20%;*/
   /*transform: translateY(-25%);*/
 }

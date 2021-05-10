@@ -52,6 +52,14 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-pagination
+      style="margin: 10px 0;text-align: center"
+      background
+      layout="prev, pager, next"
+      :total="total"
+      :current-page="pageNum"
+      @current-change="getAccountListByPage">
+    </el-pagination>
   </div>
 </template>
 
@@ -65,13 +73,29 @@ export default {
       managerAccounts: [],
       pageNum: 1,
       pageSize: 10,
-      tableHeight: 1000
+      tableHeight: 1000,
+      total: 20,
+    }
+  },
+  methods: {
+    getAccountListByPage () {
+      post('/api/admin/getAccountList', {pageNum: this.pageNum, pageSize: this.pageSize}).then(res => {
+        if(res.status == "success") {
+          this.managerAccounts = res.data.list;
+          this.total = res.data.total;
+        } else {
+          this.$message.error(res.data.errMsg);
+        }
+      }).catch(err => {
+        this.$message.error('网络错误！');
+      });
     }
   },
   created() {
     post('/api/admin/getAccountList', {pageNum: this.pageNum, pageSize: this.pageSize}).then(res => {
       if(res.status == "success") {
         this.managerAccounts = res.data.list;
+        this.total = res.data.total;
       } else {
         this.$message.error(res.data.errMsg);
       }
