@@ -44,7 +44,7 @@ export function get(url, params) {
 }
 
 export function post(url, data) {
-  return service.post(url, qs.stringify(data), {
+  return service.post(url, qs.stringify(data, { indices: false }), {
     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
   });
 }
