@@ -8,7 +8,12 @@
           </el-col>
           <el-col :span="2" :offset="19">
             <div class="headImage">
-              <el-avatar size="medium" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"></el-avatar>
+              <el-dropdown @command="logout">
+                <el-avatar class="el-dropdown-link" size="medium" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"></el-avatar>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item command="logout">退出账号</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
             </div>
           </el-col>
         </el-row>
@@ -92,6 +97,8 @@
 </template>
 
 <script>
+import {post} from "../utils/request";
+
 export default {
   name: "index",
   data: {
@@ -105,6 +112,18 @@ export default {
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
+    },
+    logout() {
+      post('/api/admin/logout',{}).then(res => {
+        if(res.status == "success") {
+          this.$router.replace('/');
+          this.$message.success("已退出该账号");
+        } else {
+          this.$message.error(res.data.errMsg);
+        }
+      }).catch(err => {
+        this.$message.error('网络错误');
+      });
     }
   }
 }
