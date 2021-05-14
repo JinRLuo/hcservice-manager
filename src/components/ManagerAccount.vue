@@ -164,7 +164,7 @@ export default {
       if(type == 'search'){
         this.pageNum = 1;
       }
-      post('/api/admin/getAccountList', {searchAccount: this.searchAccountName, pageNum: this.pageNum, pageSize: this.pageSize}).then(res => {
+      post('/api/admin/getAdminInfoList', {searchAccount: this.searchAccountName, pageNum: this.pageNum, pageSize: this.pageSize}).then(res => {
         if(res.status == "success") {
           this.managerAccounts = res.data.list;
           this.total = res.data.total;
@@ -256,7 +256,7 @@ export default {
   },
   created() {
     this.tableLoading = true;
-    post('/api/admin/getAccountList', {searchAccount: this.searchAccountName, pageNum: this.pageNum, pageSize: this.pageSize}).then(res => {
+    post('/api/admin/getAdminInfoList', {searchAccount: this.searchAccountName, pageNum: this.pageNum, pageSize: this.pageSize}).then(res => {
       if(res.status == "success") {
         this.managerAccounts = res.data.list;
         this.total = res.data.total;
