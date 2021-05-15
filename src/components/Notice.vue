@@ -117,15 +117,18 @@ export default {
             content: this.addNoticeForm.content
           }).then(res => {
             if (res.status == "success") {
-              this.tableLoading = false;
+              this.dialogLoading = false;
               this.getNoticeListByPage('page');
+              this.addNoticeDialogFormVisible = false;
               this.$message.success('添加通知成功');
             } else {
-              this.tableLoading = false;
+              this.dialogLoading = false;
+              this.addNoticeDialogFormVisible = false;
               this.$message.error(res.data.errMsg);
             }
           }).catch(err => {
-            this.tableLoading = false;
+            this.dialogLoading = false;
+            this.addNoticeDialogFormVisible = false;
             this.$message.error('网络错误！');
           });
         }

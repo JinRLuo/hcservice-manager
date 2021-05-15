@@ -58,7 +58,7 @@
                 <span>信息发布</span>
               </template>
               <el-menu-item index="notice">公告管理</el-menu-item>
-              <el-menu-item index="">投诉信息</el-menu-item>
+              <el-menu-item index="complaint">投诉信息</el-menu-item>
             </el-submenu>
 
             <el-menu-item index="5">
