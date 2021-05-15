@@ -48,8 +48,8 @@
                 <i class="el-icon-s-home"></i>
                 <span>房产管理</span>
               </template>
-              <el-menu-item index="3-1">审核房产</el-menu-item>
-              <el-menu-item index="3-2">管理房产</el-menu-item>
+              <el-menu-item index="auditRoom">审核房产</el-menu-item>
+              <el-menu-item index="">管理房产</el-menu-item>
             </el-submenu>
 
             <el-submenu index="4">
@@ -57,8 +57,8 @@
                 <i class="el-icon-s-comment"></i>
                 <span>信息发布</span>
               </template>
-              <el-menu-item index="4-1">公告管理</el-menu-item>
-              <el-menu-item index="4-2">投诉信息</el-menu-item>
+              <el-menu-item index="notice">公告管理</el-menu-item>
+              <el-menu-item index="">投诉信息</el-menu-item>
             </el-submenu>
 
             <el-menu-item index="5">

@@ -210,10 +210,10 @@ export default {
       let url;
       let message;
       if(row.status==true){
-        url = '/api/admin/disableAccount';
+        url = '/api/admin/disableAdminAccount';
         message = '已禁用该账号'
       } else {
-        url = '/api/admin/freeAccount';
+        url = '/api/admin/freeAdminAccount';
         message = '已解禁该账号'
       }
       post(url, {adminId: row.adminId}).then(res => {

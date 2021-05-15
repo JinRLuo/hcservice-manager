@@ -4,6 +4,8 @@ import Index from '../components/Index'
 import Login from "../components/Login";
 import ManagerAccount from "../components/ManagerAccount";
 import UserAccount from "../components/UserAccount";
+import AuditRoom from "../components/AuditRoom";
+import Notice from "../components/Notice";
 
 Vue.use(Router)
 
@@ -28,6 +30,16 @@ const routes = [
         name: 'UserAccount',
         component: UserAccount
       },
+      {
+        path: '/auditRoom',
+        name: 'AuditRoom',
+        component: AuditRoom
+      },
+      {
+        path: '/notice',
+        name: 'Notice',
+        component: Notice
+      }
     ]
   }
 ]
