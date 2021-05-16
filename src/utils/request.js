@@ -21,10 +21,10 @@ service.interceptors.request.use(
 // respone拦截器
 service.interceptors.response.use(
   response => {
-    const res = response.data
-    // if(res.status == 'fail' && res.data == 'ACCOUNT_NOT_LOGIN') {
-    //   store.commit('CLEAR_TOKEN');
-    //   store.commit('CLEAR_USER_INFO');
+    const res = response.data;
+    console.log(res);
+    // if(res.status == 'fail' && res.data.errCode == 20003) {
+    //   this.$router.replace('/');
     //   return Promise.reject(res);
     // } else {
       return Promise.resolve(res);

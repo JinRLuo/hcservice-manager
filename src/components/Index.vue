@@ -61,27 +61,27 @@
               <el-menu-item index="complaint">投诉信息</el-menu-item>
             </el-submenu>
 
-            <el-menu-item index="5">
+            <el-menu-item index="repair">
               <i class="el-icon-s-open"></i>
               <span slot="title">维修管理</span>
             </el-menu-item>
 
-            <el-menu-item index="6">
+            <el-menu-item index="visitor">
               <i class="el-icon-s-check"></i>
               <span slot="title">访客管理</span>
             </el-menu-item>
 
-            <el-menu-item index="7">
+            <el-menu-item index="car">
               <i class="el-icon-s-finance"></i>
               <span slot="title">停车管理</span>
             </el-menu-item>
 
-            <el-menu-item index="8">
+            <el-menu-item index="service">
               <i class="el-icon-s-management"></i>
               <span slot="title">物业管理</span>
             </el-menu-item>
 
-            <el-menu-item index="9">
+            <el-menu-item index="order">
               <i class="el-icon-s-order"></i>
               <span slot="title">订单管理</span>
             </el-menu-item>

@@ -8,19 +8,19 @@
       border
       style="width: 100%">
       <el-table-column
-        prop="adminName"
+        prop="type"
         label="投诉类型">
       </el-table-column>
       <el-table-column
-        prop="email"
+        prop="content"
         label="投诉内容">
       </el-table-column>
       <el-table-column
-        prop="phoneNum"
+        prop="createTime"
         label="投诉时间">
       </el-table-column>
       <el-table-column
-        prop="status"
+        prop="phoneNum"
         label="手机号">
       </el-table-column>
     </el-table>
@@ -37,11 +37,13 @@
 </template>
 
 <script>
+import {post} from "../utils/request";
+
 export default {
   name: "Complaint",
   data () {
     return {
-      complaintList: '',
+      complaintList: [],
       tableHeight: 1000,
       pageNum: 1,
       pageSize: 10,
@@ -51,11 +53,37 @@ export default {
   },
   methods: {
     getComplaintListByPage(type) {
-
+      this.tableLoading = true;
+      post('/api/homeOwner/getComplaintInfo', {pageNum: this.pageNum, pageSize: this.pageSize}).then(res => {
+        if(res.status == "success") {
+          this.complaintList = res.data.list;
+          this.total = res.data.total;
+          this.tableLoading = false;
+        } else {
+          this.tableLoading = false;
+          this.$message.error(res.data.errMsg);
+        }
+      }).catch(err => {
+        this.tableLoading = false;
+        this.$message.error('网络错误！');
+      });
     }
   },
   created() {
-
+    this.tableLoading = true;
+    post('/api/homeOwner/getComplaintInfo', {pageNum: this.pageNum, pageSize: this.pageSize}).then(res => {
+      if(res.status == "success") {
+        this.complaintList = res.data.list;
+        this.total = res.data.total;
+        this.tableLoading = false;
+      } else {
+        this.tableLoading = false;
+        this.$message.error(res.data.errMsg);
+      }
+    }).catch(err => {
+      this.tableLoading = false;
+      this.$message.error('网络错误！');
+    });
   },
   mounted:function(){
     this.$nextTick(function () {
