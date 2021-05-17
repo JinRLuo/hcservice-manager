@@ -48,7 +48,8 @@ export default {
       pageNum: 1,
       pageSize: 10,
       total: 0,
-      tableLoading: false
+      tableLoading: false,
+
     }
   },
   methods: {
