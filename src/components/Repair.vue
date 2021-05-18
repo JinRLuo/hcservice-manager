@@ -5,7 +5,6 @@
       ref="table"
       :data="repairList"
       :height="tableHeight"
-      border
       style="width: 100%">
       <el-table-column type="expand">
         <template slot-scope="props">
@@ -51,7 +50,7 @@
         label="图片">
         <template slot-scope="scope">
           <el-image v-for="(url, i) in scope.row.imgUrl" :key="i"
-            style="width: 100px; height: 100px"
+            style="width: 100px;margin: 0 2px"
             :src="url"
             :preview-src-list="scope.row.imgUrl">
           </el-image>
@@ -76,9 +75,9 @@
       @current-change="getRepairListByPage('page')">
     </el-pagination>
     <el-dialog title="维修结果" :visible.sync="repairResultDialogFormVisible" width="400px">
-      <el-form ref="addAccountForm" :model="repairResultForm" :rules="repairResultFormRules" v-loading="dialogLoading" label-position="left" label-width="70px">
+      <el-form ref="addAccountForm" :model="repairResultForm" :rules="repairResultFormRules" v-loading="dialogLoading" label-position="left" label-width="100px">
         <el-form-item label="维修反馈" prop="repairResult">
-          <el-input v-model="repairResultForm.repairResult" autocomplete="off"></el-input>
+          <el-input type="textarea" v-model="repairResultForm.repairResult" autocomplete="off"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
