@@ -7,7 +7,6 @@
       ref="table"
       :data="userInfo"
       :height="tableHeight"
-      border
       style="width: 100%">
       <el-table-column
         prop="userName"

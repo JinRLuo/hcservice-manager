@@ -8,7 +8,6 @@
       ref="table"
       :data="managerAccounts"
       :height="tableHeight"
-      border
       style="width: 100%">
       <el-table-column
         prop="adminName"
