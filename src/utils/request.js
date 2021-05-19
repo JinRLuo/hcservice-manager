@@ -1,5 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
+import Router from '../router'
 // 根据环境不同引入不同api地址
 // create an axios instance
 const service = axios.create({
@@ -23,12 +24,12 @@ service.interceptors.response.use(
   response => {
     const res = response.data;
     console.log(res);
-    // if(res.status == 'fail' && res.data.errCode == 20003) {
-    //   this.$router.replace('/');
-    //   return Promise.reject(res);
-    // } else {
+    if(res.status == 'fail' && res.data.errCode == 20003) {
+      Router.replace('/');
       return Promise.resolve(res);
-    // }
+    } else {
+      return Promise.resolve(res);
+    }
 
   },
   error => {
