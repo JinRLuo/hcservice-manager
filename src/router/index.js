@@ -87,6 +87,7 @@ const routes = [
 ]
 
 const router =  new Router({
+  base: '/admin/',
   routes,
   mode: 'history'
 })
