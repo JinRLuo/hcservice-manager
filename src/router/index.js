@@ -12,6 +12,7 @@ import Visitor from "../components/Visitor";
 import Service from "../components/Service";
 import Car from "../components/Car";
 import Order from "../components/Order";
+import House from "../components/House";
 
 Vue.use(Router)
 
@@ -75,6 +76,11 @@ const routes = [
         path: '/order',
         name: 'Order',
         component: Order
+      },
+      {
+        path: '/house',
+        name: 'House',
+        component: House
       }
     ]
   }
