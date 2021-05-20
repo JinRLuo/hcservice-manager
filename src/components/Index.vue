@@ -22,7 +22,7 @@
       <el-container>
         <el-aside class="leftAside" width="300px">
           <el-menu
-            default-active="index"
+            default-active="main"
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
@@ -30,7 +30,7 @@
             text-color="#fff"
             active-text-color="#ffd04b" style="height: 100%" router>
 
-            <el-menu-item index="index">
+            <el-menu-item index="main">
               <i class="el-icon-s-data"></i>
               <span slot="title">首页</span>
             </el-menu-item>
@@ -168,6 +168,7 @@ export default {
       if (command == 'logout') {
         post('/api/admin/logout', {}).then(res => {
           if (res.status == "success") {
+            this.$store.commit('CLEAR_ADMIN_INFO');
             this.$router.replace('/');
             this.$message.success("已退出该账号");
           } else {

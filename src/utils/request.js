@@ -1,6 +1,7 @@
 import axios from 'axios'
 import qs from 'qs'
 import Router from '../router'
+import store from '../store'
 // 根据环境不同引入不同api地址
 // create an axios instance
 const service = axios.create({
@@ -25,6 +26,7 @@ service.interceptors.response.use(
     const res = response.data;
     console.log(res);
     if(res.status == 'fail' && res.data.errCode == 20003) {
+      store.commit('CLEAR_ADMIN_INFO');
       Router.replace('/');
       return Promise.resolve(res);
     } else {

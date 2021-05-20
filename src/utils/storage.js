@@ -1,18 +1,9 @@
-export const setUserInfoIntoStorage = function(data) {
+export const setAdminInfoStorage = function (data) {
   let info = JSON.stringify(data);
-  window.localStorage.setItem('userInfo',info);
+  window.localStorage.setItem('adminInfo',info);
 }
 
-export const getUserInfoFromStorage = function() {
-  let userInfo = window.localStorage.getItem('userInfo');
-  return userInfo ? JSON.parse(userInfo) : '';
-}
-
-export const setTokenIntoStorage = function(data) {
-  window.localStorage.setItem('token',data);
-}
-
-export const getTokenFromStorage = function () {
-  let token = window.localStorage.getItem('token');
-  return token ? token : '';
+export const getAdminInfoFromStorage = function () {
+  let adminInfo = window.localStorage.getItem('adminInfo');
+  return adminInfo ? JSON.parse(adminInfo) : '';
 }

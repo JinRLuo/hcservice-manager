@@ -48,8 +48,9 @@ export default {
         if (valid) {
           post("/api/admin/login",{account: this.form.account, password: this.form.password}).then(res => {
             if (res.status == 'success') {
+              this.$store.commit('SET_ADMIN_INFO', res.data);
               this.$message.success('登录成功！');
-              this.$router.replace('/index');
+              this.$router.replace('/main');
             } else {
               this.$message.error(res.data.errMsg);
             }
