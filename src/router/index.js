@@ -145,7 +145,7 @@ const routes = [
 ]
 
 const router =  new Router({
-  //base: '/admin/',
+  base: '/admin/',
   routes,
   mode: 'history'
 })

@@ -184,7 +184,7 @@ export default {
     modifyPassword() {
       this.$refs['modifyPasswordForm'].validate((valid) => {
         if (valid) {
-          post('/api/admin/modifyPassword', {newPassword: this.modifyPasswordForm.newPassword, oldPassword: this.modifyPasswordForm.oldPassword}).then(res => {
+          post('/api/hc/modifyPassword', {newPassword: this.modifyPasswordForm.newPassword, oldPassword: this.modifyPasswordForm.oldPassword}).then(res => {
             if (res.status == "success") {
               this.$message.success('密码修改成功，请重新登录');
               this.$router.replace('/');
