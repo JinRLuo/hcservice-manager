@@ -22,7 +22,7 @@
       <el-container>
         <el-aside class="leftAside" width="300px">
           <el-menu
-            default-active="main"
+            :default-active='$route.path.substring(1)'
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
@@ -134,6 +134,9 @@ export default {
         callback(new Error('两次输入密码不一致!'));
       } else {
         callback();
+      }
+      return {
+        defaultActive: 'main'
       }
     };
     return {

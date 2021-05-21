@@ -51,7 +51,7 @@
           <el-input v-model="addNoticeForm.title" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="内容" prop="content">
-          <el-input v-model="addNoticeForm.content" autocomplete="off"></el-input>
+          <el-input type="textarea" v-model="addNoticeForm.content" autocomplete="off"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
